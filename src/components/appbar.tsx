@@ -1,15 +1,32 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
+import ToggleButton from "./toggleButton";
+import { useRecoilValue } from "recoil";
+import { sideNavbarState } from "@/store/atoms/drawerFunctionality";
+import Drawer from "./appdrawer";
+import SideNavbar from "./drawer";
+
 export default function AppBar() {
+
+  const open = useRecoilValue(sideNavbarState);
+  const router = useRouter();
+
   return (
     <div>
       <div className='flex p-4 justify-between'>
         
         <div className="flex">
 
-          <div className="pt-1">
+          {/* <div className="pt-1" >
+            
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
-          </div>
+          
+            
+          </div> */}
+
+          <ToggleButton></ToggleButton>
           <div className="ml-5">
             
 
@@ -67,6 +84,8 @@ export default function AppBar() {
           </div>
         </div>
       </div>
+
+      {open && <SideNavbar></SideNavbar>}
     </div>
   );
 }

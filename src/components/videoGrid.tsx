@@ -133,7 +133,7 @@ export const VIDEOS = [{
 
 export default function VideoGrid() {
   return (
-    <div className="grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ml-5 mr-3">
+    <div className="grid  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4 ml-5 mr-3">
       {VIDEOS.map((video) => (
         <div key={video.title}>
           <VideoCard
